@@ -63,6 +63,9 @@ class Title extends StatelessWidget {
               fontSize: 14,
               fontWeight: FontWeight.bold),
         ),
+        SizedBox(
+          height: 5,
+        ),
       ],
     );
   }

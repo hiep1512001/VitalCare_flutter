@@ -1,42 +1,41 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import "package:flutter/material.dart";
-import 'package:vitual_care/data/DMKhoa.dart';
+import 'package:vitual_care/data/DMGioiKham.dart';
 
-class ChonChuyenKhoa extends StatefulWidget {
-  const ChonChuyenKhoa({super.key});
+class ChonGioKham extends StatefulWidget {
+  const ChonGioKham({super.key});
 
   @override
-  State<ChonChuyenKhoa> createState() => _ChonChuyenKhoa();
+  State<ChonGioKham> createState() => _ChonGioKham();
 }
 
-class _ChonChuyenKhoa extends State<ChonChuyenKhoa> {
-  final List<DMKhoa> items = [
-    DMKhoa(1, "Cơ xương khớp"),
-    DMKhoa(2, "Nội thần kinh"),
-    DMKhoa(3, "Ngoại thần kinh"),
-    DMKhoa(4, "NGoại tổng hợp")
+class _ChonGioKham extends State<ChonGioKham> {
+  final List<DMGioiKham> items = [
+    DMGioiKham(1, "7h-8h"),
+    DMGioiKham(2, "8h-9h"),
+    DMGioiKham(3, "9h-10h"),
+    DMGioiKham(4, "10h-11h"),
   ];
-
-  DMKhoa? selectedValue;
+  DMGioiKham? selectedValue;
   final TextEditingController textEditingController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return DropdownButtonHideUnderline(
-      child: DropdownButton2<DMKhoa>(
+      child: DropdownButton2<DMGioiKham>(
         isExpanded: true,
-
         hint: Text(
-          'Vui lòng chọn chuyên khoa',
+          'Vui lòng chọn giờ khám',
           style: TextStyle(
             fontSize: 16,
             color: Theme.of(context).hintColor,
           ),
         ),
+
         items: items
-            .map((item) => DropdownMenuItem(
+            .map((item) => DropdownMenuItem<DMGioiKham>(
                   value: item,
                   child: Text(
-                    item.tenKhoa,
+                    item.gioiKham,
                     style: const TextStyle(
                         fontSize: 16, fontWeight: FontWeight.normal),
                   ),
@@ -48,6 +47,7 @@ class _ChonChuyenKhoa extends State<ChonChuyenKhoa> {
             selectedValue = value;
           });
         },
+
         buttonStyleData: ButtonStyleData(
           height: 45,
           decoration: BoxDecoration(
@@ -84,13 +84,13 @@ class _ChonChuyenKhoa extends State<ChonChuyenKhoa> {
                   vertical: 8,
                 ),
                 hintText: 'Tìm kiếm',
-                hintStyle: TextStyle(fontSize: 16),
+                hintStyle: TextStyle(fontSize: 12),
                 border: OutlineInputBorder(),
               ),
             ),
           ),
           searchMatchFn: (item, searchValue) {
-            return item.value!.tenKhoa
+            return item.value!.gioiKham
                 .toString()
                 .toLowerCase()
                 .contains(searchValue.toLowerCase());
