@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vitual_care/ui/DangKyKhamBenh/TongHopThongTin.dart';
 import 'package:vitual_care/ui/ThongTinBenhNhan/DienThongTinHoSo.dart';
 
 class DanhSachHoSo extends StatelessWidget {
@@ -19,7 +20,7 @@ class DanhSachHoSo extends StatelessWidget {
             actions: [
               IconButton(
                 icon: const Icon(Icons.create_new_folder),
-                tooltip: 'Show Snackbar',
+                tooltip: 'Thêm hồ sơ',
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -85,7 +86,7 @@ class _CustomContentDanhSachHoSo extends State<CustomContentDanhSachHoSo> {
   final List<Map<String, dynamic>> items = [
     {'HoVaTen': 'Nguyễn Văn A', 'NamSinh': 2001},
     {'HoVaTen': 'Nguyễn Văn B', 'NamSinh': 2002},
-    {'HoVaTen': 'Nguyễn Văn C', 'NamSinh': 2003}
+    {'HoVaTen': 'Nguyễn Văn C', 'NamSinh': 2003},
   ];
   @override
   Widget build(BuildContext context) {
@@ -115,7 +116,7 @@ class _CustomItemListView extends State<CustomItemListView> {
     int _namSinh = widget.namSinh;
     return Container(
       height: 60,
-      margin: EdgeInsets.symmetric(vertical: 10),
+      margin: EdgeInsets.symmetric(vertical: 5),
       child: ElevatedButton(
           style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white,
@@ -124,7 +125,31 @@ class _CustomItemListView extends State<CustomItemListView> {
                 // Bo góc
               ),
               iconColor: Colors.black),
-          onPressed: () {},
+          onPressed: () {
+            // Chuyển trang với hiệu ứng tùy chỉnh
+            Navigator.push(
+              context,
+              PageRouteBuilder(
+                pageBuilder: (context, animation, secondaryAnimation) {
+                  return TongHopThongTin();
+                },
+                transitionsBuilder:
+                    (context, animation, secondaryAnimation, child) {
+                  // Hiệu ứng chuyển trang từ phải sang trái
+                  const begin = Offset(1.0, 0.0); // bắt đầu từ phải
+                  const end = Offset.zero; // kết thúc tại vị trí ban đầu
+                  const curve = Curves.easeInOut;
+
+                  var tween = Tween(begin: begin, end: end)
+                      .chain(CurveTween(curve: curve));
+                  var offsetAnimation = animation.drive(tween);
+
+                  return SlideTransition(
+                      position: offsetAnimation, child: child);
+                },
+              ),
+            );
+          },
           child: Row(
             spacing: 10,
             children: [
@@ -134,9 +159,9 @@ class _CustomItemListView extends State<CustomItemListView> {
               Text(
                 "Hồ sơ " + _hoVaTen + " - " + _namSinh.toString(),
                 style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.black,
-                ),
+                    fontSize: 16,
+                    color: Colors.black,
+                    fontWeight: FontWeight.normal),
               )
             ],
           )),

@@ -28,6 +28,7 @@ class _ChonChuyenKhoa extends State<ChonChuyenKhoa> {
         hint: Text(
           'Vui lòng chọn chuyên khoa',
           style: TextStyle(
+            fontWeight: FontWeight.normal,
             fontSize: 16,
             color: Theme.of(context).hintColor,
           ),
@@ -52,6 +53,7 @@ class _ChonChuyenKhoa extends State<ChonChuyenKhoa> {
           height: 45,
           decoration: BoxDecoration(
               color: Color(0xffe0e0e0),
+              borderRadius: BorderRadius.circular(10.0),
               border:
                   Border(bottom: BorderSide(color: Colors.black, width: 1))),
         ),

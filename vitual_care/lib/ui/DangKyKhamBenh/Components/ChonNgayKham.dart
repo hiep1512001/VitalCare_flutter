@@ -15,12 +15,15 @@ class _ChonNgayKham extends State<ChonNgayKham> {
       controller: _dateController,
       decoration: InputDecoration(
         filled: true,
+        contentPadding: EdgeInsets.symmetric(
+            vertical: 12.0, horizontal: 14.0), // Điều chỉnh vertical padding
         fillColor: Color(0xffe0e0e0),
         hintText: " Vui lòng chọn ngày khám",
-        hintStyle: TextStyle(fontSize: 16),
+        hintStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
         // labelText: '    Chọn ngày khám',
         suffixIcon: Icon(Icons.calendar_month),
         enabledBorder: UnderlineInputBorder(
+          borderRadius: BorderRadius.circular(10.0),
           borderSide: BorderSide(
             color: Colors.black, // Màu viền dưới khi không focus
             width: 1.0, // Độ dày của viền dưới

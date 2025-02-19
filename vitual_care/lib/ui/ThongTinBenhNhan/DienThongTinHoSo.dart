@@ -51,7 +51,12 @@ class CustomContentDienThongTin extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 25),
+        margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+        decoration: BoxDecoration(
+          color: Colors.white, // Màu nền của container
+          borderRadius: BorderRadius.circular(10), // Bo góc với bán kính 20
+        ),
         child: Column(
           children: [
             Container(
@@ -158,6 +163,7 @@ class _InputHovaTen extends State<InputHovaTen> {
   Widget build(BuildContext context) {
     return TextField(
       decoration: InputDecoration(
+        contentPadding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 14.0),
         filled: true,
         fillColor: Color(0xffe0e0e0),
         // label: Text("Họ và tên"),
@@ -166,6 +172,7 @@ class _InputHovaTen extends State<InputHovaTen> {
         // labelText: '    Chọn ngày khám',
         suffixIcon: Icon(Icons.person),
         enabledBorder: UnderlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
           borderSide: BorderSide(
             color: Colors.black, // Màu viền dưới khi không focus
             width: 1.0, // Độ dày của viền dưới
@@ -199,6 +206,7 @@ class _InputGioiTinh extends State<InputGioiTinh> {
           value: 0,
           groupValue: _selectedValue,
           onChanged: _handleRadioValueChanged,
+          activeColor: Color(0xff1565c0),
         ),
         Text("Nam"),
         SizedBox(width: 20), // Khoảng cách giữa các radio button
@@ -206,6 +214,7 @@ class _InputGioiTinh extends State<InputGioiTinh> {
           value: 1,
           groupValue: _selectedValue,
           onChanged: _handleRadioValueChanged,
+          activeColor: Color(0xff1565c0),
         ),
         Text("Nữ"),
         SizedBox(width: 20), // Khoảng cách giữa các radio button
@@ -237,9 +246,9 @@ class _InputNgaySinh extends State<InputNgaySinh> {
         return Theme(
           data: Theme.of(context).copyWith(
             colorScheme: ColorScheme.light(
-              primary: Colors.blueGrey, // header background color
-              onPrimary: Colors.black, // header text color
-              onSurface: Color(0xff1565c0), // body text color
+              primary: Color(0xff1565c0), // header background color
+              onPrimary: Colors.white, // header text color
+              onSurface: Colors.black, // body text color
             ),
             textButtonTheme: TextButtonThemeData(
               style: TextButton.styleFrom(
@@ -264,6 +273,7 @@ class _InputNgaySinh extends State<InputNgaySinh> {
     return TextField(
       controller: _dateController,
       decoration: InputDecoration(
+        contentPadding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 14.0),
         filled: true,
         fillColor: Color(0xffe0e0e0),
         hintText: " Vui lòng nhập ngày sinh",
@@ -271,6 +281,7 @@ class _InputNgaySinh extends State<InputNgaySinh> {
         // labelText: '    Chọn ngày khám',
         suffixIcon: Icon(Icons.calendar_month),
         enabledBorder: UnderlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
           borderSide: BorderSide(
             color: Colors.black, // Màu viền dưới khi không focus
             width: 1.0, // Độ dày của viền dưới
@@ -299,6 +310,7 @@ class _InputBHYT extends State<InputBHYT> {
   Widget build(BuildContext context) {
     return TextField(
       decoration: InputDecoration(
+        contentPadding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 14.0),
         filled: true,
         fillColor: Color(0xffe0e0e0),
         // label: Text("Họ và tên"),
@@ -307,6 +319,7 @@ class _InputBHYT extends State<InputBHYT> {
         // labelText: '    Chọn ngày khám',
         suffixIcon: Icon(Icons.medical_information),
         enabledBorder: UnderlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
           borderSide: BorderSide(
             color: Colors.black, // Màu viền dưới khi không focus
             width: 1.0, // Độ dày của viền dưới
@@ -329,6 +342,7 @@ class _InputCCCD extends State<InputCCCD> {
   Widget build(BuildContext context) {
     return TextField(
       decoration: InputDecoration(
+        contentPadding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 14.0),
         filled: true,
         fillColor: Color(0xffe0e0e0),
         // label: Text("Họ và tên"),
@@ -337,6 +351,7 @@ class _InputCCCD extends State<InputCCCD> {
         // labelText: '    Chọn ngày khám',
         suffixIcon: Icon(Icons.badge),
         enabledBorder: UnderlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
           borderSide: BorderSide(
             color: Colors.black, // Màu viền dưới khi không focus
             width: 1.0, // Độ dày của viền dưới
@@ -359,6 +374,7 @@ class _InputSDT extends State<InputSDT> {
   Widget build(BuildContext context) {
     return TextField(
       decoration: InputDecoration(
+        contentPadding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 14.0),
         filled: true,
         fillColor: Color(0xffe0e0e0),
         // label: Text("Họ và tên"),
@@ -367,6 +383,7 @@ class _InputSDT extends State<InputSDT> {
         // labelText: '    Chọn ngày khám',
         suffixIcon: Icon(Icons.phone_android),
         enabledBorder: UnderlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
           borderSide: BorderSide(
             color: Colors.black, // Màu viền dưới khi không focus
             width: 1.0, // Độ dày của viền dưới
@@ -389,6 +406,7 @@ class _InputEmail extends State<InputEmail> {
   Widget build(BuildContext context) {
     return TextField(
       decoration: InputDecoration(
+        contentPadding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 14.0),
         filled: true,
         fillColor: Color(0xffe0e0e0),
         // label: Text("Họ và tên"),
@@ -397,6 +415,7 @@ class _InputEmail extends State<InputEmail> {
         // labelText: '    Chọn ngày khám',
         suffixIcon: Icon(Icons.mail),
         enabledBorder: UnderlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
           borderSide: BorderSide(
             color: Colors.black, // Màu viền dưới khi không focus
             width: 1.0, // Độ dày của viền dưới
@@ -419,7 +438,11 @@ class _InputNgheNghiep extends State<InputNgheNghiep> {
     DMNgheNghiep(1, "Nông dân"),
     DMNgheNghiep(2, "Bác sĩ"),
     DMNgheNghiep(3, "Giáo viên"),
-    DMNgheNghiep(4, "Tổng thống")
+    DMNgheNghiep(4, "Tổng thống"),
+    DMNgheNghiep(5, "Nông dân"),
+    DMNgheNghiep(6, "Bác sĩ"),
+    DMNgheNghiep(7, "Giáo viên"),
+    DMNgheNghiep(8, "Tổng thống")
   ];
 
   DMNgheNghiep? selectedValue;
@@ -433,6 +456,7 @@ class _InputNgheNghiep extends State<InputNgheNghiep> {
         hint: Text(
           'Vui lòng nhập nghề nghiệp',
           style: TextStyle(
+            fontWeight: FontWeight.normal,
             fontSize: 16,
             color: Theme.of(context).hintColor,
           ),
@@ -457,6 +481,7 @@ class _InputNgheNghiep extends State<InputNgheNghiep> {
           height: 45,
           decoration: BoxDecoration(
               color: Color(0xffe0e0e0),
+              borderRadius: BorderRadius.circular(10),
               border:
                   Border(bottom: BorderSide(color: Colors.black, width: 1))),
         ),
@@ -552,6 +577,5 @@ class CustomButtonBottom extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }

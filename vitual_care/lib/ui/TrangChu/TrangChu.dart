@@ -50,7 +50,7 @@ class Title extends StatelessWidget {
           height: 15,
         ),
         Text(
-          'Bệnh việnh nhân dân 115',
+          'Bệnh viện nhân dân 115',
           style: TextStyle(
               color: Color(0xff0d47a1),
               fontSize: 22,

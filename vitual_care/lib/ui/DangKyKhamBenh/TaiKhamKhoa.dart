@@ -52,12 +52,12 @@ class CustomContentTaiKhamKhoa extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        // decoration: BoxDecoration(
-        //   color: Colors.white, // Màu nền của container
-        //   borderRadius: BorderRadius.circular(10), // Bo góc với bán kính 20
-        // ),
-        margin: const EdgeInsets.symmetric(vertical: 25),
-        // padding: const EdgeInsets.all(15.0),
+        margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+        decoration: BoxDecoration(
+          color: Colors.white, // Màu nền của container
+          borderRadius: BorderRadius.circular(10), // Bo góc với bán kính 20
+        ),
         child: Column(
           children: [
             Container(
