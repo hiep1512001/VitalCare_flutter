@@ -1,4 +1,7 @@
 import "package:flutter/material.dart";
+import "package:vitual_care/ui/DangKyKhamBenh/BHYT_ThuPhi.dart";
+import "package:vitual_care/ui/DangKyKhamBenh/KhamVIP.dart";
+import "package:vitual_care/ui/DangKyKhamBenh/KhamYeuCau.dart";
 import "package:vitual_care/ui/DangKyKhamBenh/TaiKhamKhoa.dart";
 
 class TrangChu extends StatelessWidget {
@@ -20,20 +23,58 @@ class TrangChu extends StatelessWidget {
             backgroundColor: Colors.white,
             title: Title(),
             centerTitle: true,
-            leading: IconButton(
-              icon: Icon(
-                Icons.menu,
-                color: Colors.black, // Màu của icon
-                size: 30.0, // Kích thước của icon
-              ),
-              onPressed: () {
-                // Hành động khi nhấn vào icon
-              },
-            ),
           ),
         ),
       ),
       body: CustomContent(),
+      drawer: Drawer(
+        // Add a ListView to the drawer. This ensures the user can scroll
+        // through the options in the drawer if there isn't enough vertical
+        // space to fit everything.
+        child: ListView(
+          // Important: Remove any padding from the ListView.
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(color: Color(0xff0d47a1)),
+              child: Text(
+                'Bệnh viện nhân dân 115',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+            ListTile(
+              title: const Text('Home'),
+              // selected: _selectedIndex == 0,
+              onTap: () {
+                // Update the state of the app
+                // _onItemTapped(0);
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text('Business'),
+              // selected: _selectedIndex == 1,
+              onTap: () {
+                // Update the state of the app
+                // _onItemTapped(1);
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text('School'),
+              // selected: _selectedIndex == 2,
+              onTap: () {
+                // Update the state of the app
+                // _onItemTapped(2);
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -249,7 +290,33 @@ class CustomDKKB extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10), // Bo góc
                           ),
                         ),
-                        onPressed: () => {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                              pageBuilder:
+                                  (context, animation, secondaryAnimation) {
+                                return KhamYeuCau();
+                              },
+                              transitionsBuilder: (context, animation,
+                                  secondaryAnimation, child) {
+                                // Hiệu ứng chuyển trang từ phải sang trái
+                                const begin =
+                                    Offset(1.0, 0.0); // bắt đầu từ phải
+                                const end =
+                                    Offset.zero; // kết thúc tại vị trí ban đầu
+                                const curve = Curves.easeInOut;
+
+                                var tween = Tween(begin: begin, end: end)
+                                    .chain(CurveTween(curve: curve));
+                                var offsetAnimation = animation.drive(tween);
+
+                                return SlideTransition(
+                                    position: offsetAnimation, child: child);
+                              },
+                            ),
+                          );
+                        },
                         child: Column(
                           children: [
                             Image.asset(
@@ -286,7 +353,33 @@ class CustomDKKB extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10), // Bo góc
                           ),
                         ),
-                        onPressed: () => {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                              pageBuilder:
+                                  (context, animation, secondaryAnimation) {
+                                return BHYTThuPhi();
+                              },
+                              transitionsBuilder: (context, animation,
+                                  secondaryAnimation, child) {
+                                // Hiệu ứng chuyển trang từ phải sang trái
+                                const begin =
+                                    Offset(1.0, 0.0); // bắt đầu từ phải
+                                const end =
+                                    Offset.zero; // kết thúc tại vị trí ban đầu
+                                const curve = Curves.easeInOut;
+
+                                var tween = Tween(begin: begin, end: end)
+                                    .chain(CurveTween(curve: curve));
+                                var offsetAnimation = animation.drive(tween);
+
+                                return SlideTransition(
+                                    position: offsetAnimation, child: child);
+                              },
+                            ),
+                          );
+                        },
                         child: Column(
                           children: [
                             Image.asset(
@@ -318,7 +411,33 @@ class CustomDKKB extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10), // Bo góc
                           ),
                         ),
-                        onPressed: () => {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                              pageBuilder:
+                                  (context, animation, secondaryAnimation) {
+                                return KhamVIP();
+                              },
+                              transitionsBuilder: (context, animation,
+                                  secondaryAnimation, child) {
+                                // Hiệu ứng chuyển trang từ phải sang trái
+                                const begin =
+                                    Offset(1.0, 0.0); // bắt đầu từ phải
+                                const end =
+                                    Offset.zero; // kết thúc tại vị trí ban đầu
+                                const curve = Curves.easeInOut;
+
+                                var tween = Tween(begin: begin, end: end)
+                                    .chain(CurveTween(curve: curve));
+                                var offsetAnimation = animation.drive(tween);
+
+                                return SlideTransition(
+                                    position: offsetAnimation, child: child);
+                              },
+                            ),
+                          );
+                        },
                         child: Column(
                           children: [
                             Image.asset(
