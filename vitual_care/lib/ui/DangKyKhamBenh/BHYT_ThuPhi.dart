@@ -112,7 +112,6 @@ class CustomBHYTThuPhi extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }
 

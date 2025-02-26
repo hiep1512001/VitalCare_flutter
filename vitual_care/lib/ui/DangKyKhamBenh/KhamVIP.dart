@@ -112,7 +112,6 @@ class CustomKhamVIP extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }
 

@@ -28,6 +28,7 @@ class TrangChu extends StatelessWidget {
       ),
       body: CustomContent(),
       drawer: Drawer(
+        backgroundColor: Colors.white,
         // Add a ListView to the drawer. This ensures the user can scroll
         // through the options in the drawer if there isn't enough vertical
         // space to fit everything.
@@ -38,12 +39,13 @@ class TrangChu extends StatelessWidget {
             const DrawerHeader(
               decoration: BoxDecoration(color: Color(0xff0d47a1)),
               child: Text(
-                'Bệnh viện nhân dân 115',
-                style: TextStyle(color: Colors.white),
+                'BỆNH VIỆN NHÂN DÂN 115',
+                style: TextStyle(color: Colors.white, fontSize: 20),
               ),
             ),
             ListTile(
-              title: const Text('Home'),
+              leading: Icon(Icons.home),
+              title: const Text('Trang chủ'),
               // selected: _selectedIndex == 0,
               onTap: () {
                 // Update the state of the app
@@ -53,7 +55,9 @@ class TrangChu extends StatelessWidget {
               },
             ),
             ListTile(
-              title: const Text('Business'),
+              leading: Icon(Icons.manage_accounts),
+              title: const Text('Tài khoản'),
+
               // selected: _selectedIndex == 1,
               onTap: () {
                 // Update the state of the app
@@ -63,7 +67,8 @@ class TrangChu extends StatelessWidget {
               },
             ),
             ListTile(
-              title: const Text('School'),
+              leading: Icon(Icons.logout),
+              title: const Text('Đăng xuất'),
               // selected: _selectedIndex == 2,
               onTap: () {
                 // Update the state of the app

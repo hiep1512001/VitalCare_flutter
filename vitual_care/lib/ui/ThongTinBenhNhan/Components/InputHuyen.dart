@@ -1,31 +1,35 @@
-import 'package:flutter/material.dart';
-import 'package:vitual_care/data/DMPhongKham.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:flutter/material.dart';
+import 'package:vitual_care/data/DMHuyen.dart';
 
-class ChonPhongKham extends StatefulWidget {
-  const ChonPhongKham({super.key});
+class InputHuyen extends StatefulWidget {
+  const InputHuyen({super.key});
+
   @override
-  State<ChonPhongKham> createState() => _ChonPhongKham();
+  State<InputHuyen> createState() => _InputHuyen();
 }
 
-class _ChonPhongKham extends State<ChonPhongKham> {
-  final List<DMPhongKham> items = [
-    DMPhongKham(1, "KYC15 - BS.Ngô Thị Cẩm Hoa"),
-    DMPhongKham(2, "Nội thần kinh"),
-    DMPhongKham(3, "KYC15 - BS.Ngô Thị Cẩm Hoa"),
-    DMPhongKham(4, "NGoại tổng hợp")
+class _InputHuyen extends State<InputHuyen> {
+  final List<DMHuyen> items = [
+    DMHuyen(1, 1, "Quận 10"),
+    DMHuyen(2, 2, "Bến Lức"),
+    DMHuyen(3, 3, "Châu Thành"),
+    DMHuyen(4, 4, "Châu Thành"),
+    DMHuyen(5, 5, "Tân Thành"),
+    DMHuyen(6, 6, "Châu Thành"),
+    DMHuyen(7, 7, "Châu Thành"),
+    DMHuyen(8, 7, "Châu Thành")
   ];
-
-  DMPhongKham? selectedValue;
+  DMHuyen? selectedValue;
   final TextEditingController textEditingController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return DropdownButtonHideUnderline(
-      child: DropdownButton2<DMPhongKham>(
+      child: DropdownButton2<DMHuyen>(
         isExpanded: true,
 
         hint: Text(
-          'Vui lòng chọn phòng khám',
+          'Vui lòng nhập huyện / quận',
           style: TextStyle(
             fontWeight: FontWeight.normal,
             fontSize: 16,
@@ -36,7 +40,7 @@ class _ChonPhongKham extends State<ChonPhongKham> {
             .map((item) => DropdownMenuItem(
                   value: item,
                   child: Text(
-                    item.tenPhongKham,
+                    item.tenHuyen,
                     style: const TextStyle(
                         fontSize: 16, fontWeight: FontWeight.normal),
                   ),
@@ -52,7 +56,7 @@ class _ChonPhongKham extends State<ChonPhongKham> {
           height: 45,
           decoration: BoxDecoration(
               color: Color(0xffe0e0e0),
-              borderRadius: BorderRadius.circular(10.0),
+              borderRadius: BorderRadius.circular(10),
               border:
                   Border(bottom: BorderSide(color: Colors.black, width: 1))),
         ),
@@ -91,7 +95,7 @@ class _ChonPhongKham extends State<ChonPhongKham> {
             ),
           ),
           searchMatchFn: (item, searchValue) {
-            return item.value!.tenPhongKham
+            return item.value!.tenHuyen
                 .toString()
                 .toLowerCase()
                 .contains(searchValue.toLowerCase());

@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:vitual_care/ui/DangKyKhamBenh/KhamYeuCau.dart';
-import 'package:vitual_care/ui/DangKyKhamBenh/TaiKhamKhoa.dart';
-import 'package:vitual_care/ui/DangKyKhamBenh/TongHopThongTin.dart';
-import 'package:vitual_care/ui/ThongTinBenhNhan/DanhSachHoSo.dart';
-import 'package:vitual_care/ui/ThongTinBenhNhan/DienThongTinHoSo.dart';
-import './ui/TrangChu/TrangChu.dart';
+import 'package:vitual_care/ui/DangNhap/DangNhap.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
@@ -22,7 +17,7 @@ void main() {
             GlobalCupertinoLocalizations.delegate,
           ],
           home: SafeArea(
-            child: TrangChu(),
+            child: DangNhap(),
           ),
           debugShowCheckedModeBanner: false)));
 }
